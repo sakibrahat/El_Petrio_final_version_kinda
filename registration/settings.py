@@ -94,6 +94,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+CSRF_TRUSTED_ORIGINS = ['https://el-petro.onrender.com']
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
