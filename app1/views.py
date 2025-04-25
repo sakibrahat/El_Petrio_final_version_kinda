@@ -44,7 +44,13 @@ def signuppage(request):
         email = request.POST.get('email')
         pass1 = request.POST.get('password1')
         pass2 = request.POST.get('password2')
+ # Check if username already exists
+        if User.objects.filter(username=uname).exists():
+            return render(request, 'signup.html', {'error': 'Username already exists!'})
 
+        # Check if email already exists
+        if User.objects.filter(email=email).exists():
+            return render(request, 'signup.html', {'error': 'Email already exists!'})
         if pass1 != pass2:
             return HttpResponse("Your password and confirm password are not Same!!")
         else:
